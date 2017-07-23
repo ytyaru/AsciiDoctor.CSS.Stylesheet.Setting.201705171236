@@ -1,0 +1,25 @@
+:source-highlighter: highlightjs
+:linkcss:
+:stylesdir: css/
+:stylesheet: test.css
+
+= 任意の外部CSSを参照する
+
+== Attribute版 `:stylesheet: ./css/test.css`
+
+外部CSSを任意のディレクトリから参照する。
+
+* http://asciidoctor.org/docs/user-manual/#generate-an-html-document
+
+[%autowidth]
+|====
+|属性|説明
+
+| `:linkcss:` |HTMLからCSSを外部化する。
+| `:stylesdir: css/` |CSSを `./css/` ディレクトリから参照する。
+| `:stylesheet: test.css` | `test.css` ファイルをCSSとして参照する。
+|====
+
+* `:stylesheet: css/test.css` としても参照できなかった
+* `:linkcss:` がなければ `:stylesheet:` を指定してもHTMLにCSSが内蔵されてしまう
+

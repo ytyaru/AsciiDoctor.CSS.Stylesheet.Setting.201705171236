@@ -1,0 +1,36 @@
+:source-highlighter: highlightjs
+
+= adocより上位の外部CSSを参照する
+
+== コマンド版
+
+外部CSSを任意のディレクトリから参照する。
+
+* root/
+** css/
+*** test.css
+** stylesheet/set/ref_parent/run_this/byAttribute/
+*** run.sh
+*** test.adoc (このファイル)
+
+[source, sh]
+----
+rbenv exec asciidoctor -a linkcss -a stylesheet=test.css -a stylesdir=../../../../../css/ test.adoc
+----
+
+[%autowidth]
+|====
+|起動引数|説明
+
+| `-a linkcss` |HTMLからCSSを外部化する。
+| `-a stylesdir=../../../../../css/` |CSSを `../../../../../css/` ディレクトリから参照する。
+| `-a stylesheet=test.css` | `test.css` ファイルをCSSとして参照する。
+|====
+
+* `:stylesheet: ../../../../../css/test.css` としても参照できなかった
+* `:linkcss:` がなければ `:stylesheet:` を指定してもHTMLにCSSが内蔵されてしまう
+
+== 参考
+
+* http://asciidoctor.org/docs/user-manual/#generate-an-html-document
+

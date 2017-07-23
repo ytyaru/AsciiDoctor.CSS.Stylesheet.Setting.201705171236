@@ -1,0 +1,43 @@
+:source-highlighter: highlightjs
+:linkcss:
+// 実行パスから見た相対パス
+:stylesdir: ./css/
+:stylesheet: test.css
+
+= adocより上位の外部CSSを参照できなかった
+
+== Attribute版
+
+外部CSSを任意のディレクトリから参照したかったができない。
+
+* root/
+** run.sh
+** css/
+*** test.css
+** stylesheet/set/ref_parent/run_this/byAttribute/
+*** test.adoc (このファイル)
+
+.run.sh
+[source, sh]
+----
+dir="./stylesheet/set/ref_parent/run_root/"
+rbenv exec asciidoctor "${dir}byAttribute/test.adoc"
+rbenv exec asciidoctor -a linkcss -a stylesheet=test.css -a stylesdir=./css/ "${dir}byCommand/test.adoc"
+----
+
+[%autowidth]
+|====
+|属性|説明
+
+| `:linkcss:` |HTMLからCSSを外部化する。
+| `:stylesdir: ./css/` |CSSを AsciiDoctorの実行パス(root)からみた `./css/` ディレクトリから参照する。
+| `:stylesheet: test.css` | `test.css` ファイルをCSSとして参照する。
+|====
+
+* `:stylesheet: ./css/test.css` としても参照できなかった
+* `:linkcss:` がなければ `:stylesheet:` を指定してもHTMLにCSSが内蔵されてしまう
+
+== 参考
+
+* http://asciidoctor.org/docs/user-manual/#generate-an-html-document
+

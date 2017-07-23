@@ -1,0 +1,11 @@
+:source-highlighter: highlightjs
+//:linkcss:
+
+= CSSを出力しない
+
+== コマンド版 `rbenv exec asciidoctor -a stylesheet! test.adoc`
+
+CSSを別ファイルに出力する。
+
+* http://asciidoctor.org/docs/render-documents/#styling-the-html-with-css
+* https://translate.googleusercontent.com/translate_c?act=url&depth=1&hl=ja&ie=UTF8&prev=_t&rurl=translate.google.com&sl=en&sp=nmt4&tl=ja&u=http://asciidoctor.org/docs/render-documents/&usg=ALkJrhgR0SfK7EuIDtY-f5NYnOEV72d6EQ#styling-the-html-with-css[翻訳]
